@@ -29,7 +29,7 @@ Total Votes: {total_votes}
     
 # A complete list of candidates who received votes
 for canidate in canidate_votes:
-    print(f"{canidate} {canidate_votes[canidate]/total_votes *100} ( {canidate_votes[canidate]} )")
+    print(f"{canidate} {canidate_votes[canidate]/total_votes:.3%} ({canidate_votes[canidate]})")
     #print(f"Votes for canidate: {canidate_votes[canidate]}")
     #print(f"percentage: {canidate_votes[canidate]/total_votes *100}")
     #print("----------------------")
@@ -38,14 +38,13 @@ for canidate in canidate_votes:
         winner_name=canidate
 
 print(f"""----------------------
-Name: {winner_name}
+Winner: {winner_name}
 -----------------""")
  
 #  Set variable for output file
-#output_file = os.path.join("Election_results.txt")
+output_file = os.path.join("analysis","Election_results.txt")
 
-
-#  Open the output file
-#with open(output_file, "w") as datafile:
- #   writer = txt.writer(datafile)
-  #     print(Election_df)
+#   Open the output file
+with open(output_file, "w") as results:
+    writer = txt.writer(results)
+    writer.writerows(Election_results)
