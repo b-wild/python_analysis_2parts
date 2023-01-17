@@ -23,8 +23,8 @@ with open(Bank_df,'r') as csvfile:
 #The total number of months included in the dataset
         total_months+=1
 #The net total amount of "Profit/Losses" over the entire period
-for row[1] in profit_losses:
-    profit_losses[row[1]]
+        total_profit = total_profit+ int(row[1])
+
 
 
 
@@ -36,7 +36,7 @@ for row[1] in profit_losses:
 print(f"""Financial Analysis
 ----------------------------
 Total Months:{total_months}
-Total: {profit_losses}""")
+Total: ${total_profit}""")
 
 #the net total amount of "Profit/Losses" over the entire period
         
@@ -48,18 +48,18 @@ Total: {profit_losses}""")
 
 #The greatest decrease in profits (date and amount) over the entire period
 
-output_file = os.path.join("analysis", "Bank_results.txt")
+#output_file = os.path.join("analysis", "Bank_results.txt")
 
 #   Open the output file
-with open(output_file, "w") as output:
-    output.write("""Financial Analysis
-  ----------------------------
-  Total Months: 86
-  Total: $22564198
-  Average Change: $-8311.11
-  Greatest Increase in Profits: Aug-16 ($1862002)
-  Greatest Decrease in Profits: Feb-14 ($-1825558)
-  ```""")
+#with open(output_file, "w") as output:
+ #   output.write("""Financial Analysis
+ # ----------------------------
+ # Total Months: 86
+ # Total: $22564198
+ # Average Change: $-8311.11
+ # Greatest Increase in Profits: Aug-16 ($1862002)
+ # Greatest Decrease in Profits: Feb-14 ($-1825558)
+ # ```""")
 
 
 
