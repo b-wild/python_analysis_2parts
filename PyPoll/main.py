@@ -42,11 +42,11 @@ Winner: {winner_name}
 -----------------""")
  
 #  Set variable for output file
-output_file = os.path.join("analysis","Election_results.txt")
+output_file = os.path.join("analysis", "Election_results.txt")
 
 #   Open the output file
-with open("Election_results.txt", "w") as f:
-    f.write("""Election Results
+with open(output_file, "w") as output:
+    output.write("""Election Results
 --------------------------
 Total Votes: 369711
 --------------------------
