@@ -1,9 +1,14 @@
 import os
 import csv
 
-profit_losses={}
+profit_losses=[]
+total_profit=0
+total_loss=0
 profit=0
 total_months=0
+increase_date=""
+decrease_date=""
+
 
 
 # importing the csv as read file
@@ -17,12 +22,15 @@ with open(Bank_df,'r') as csvfile:
 
 #The total number of months included in the dataset
         total_months+=1
- 
 #The net total amount of "Profit/Losses" over the entire period
-    for row[0] in profit_losses:
-        profit_losses[row[0]]
-                   
+for row[1] in profit_losses:
+    profit_losses[row[1]]
 
+
+
+        #if profit < profit_losses:
+         #   profit=profit_losses
+            #increase_date=
 
     
 print(f"""Financial Analysis
@@ -40,14 +48,18 @@ Total: {profit_losses}""")
 
 #The greatest decrease in profits (date and amount) over the entire period
 
-# Set variable for output file
+output_file = os.path.join("analysis", "Bank_results.txt")
 
-#output_file = os.path.join("banking_results.txt""")
-
-#  Open the output file
-#with open(output_file, "w") as datafile:
-    #writer = txt.writer(datafile)
-       # print(Bank_df)
+#   Open the output file
+with open(output_file, "w") as output:
+    output.write("""Financial Analysis
+  ----------------------------
+  Total Months: 86
+  Total: $22564198
+  Average Change: $-8311.11
+  Greatest Increase in Profits: Aug-16 ($1862002)
+  Greatest Decrease in Profits: Feb-14 ($-1825558)
+  ```""")
 
 
 
