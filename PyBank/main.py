@@ -1,9 +1,10 @@
 import os
 import csv
 
-profitLosses={}
+profit_losses={}
+profit=0
 total_months=0
-profit_losses=0
+
 
 # importing the csv as read file
 Bank_df=os.path.join("resources","budget_data.csv")
@@ -16,22 +17,24 @@ with open(Bank_df,'r') as csvfile:
 
 #The total number of months included in the dataset
         total_months+=1
+ 
 #The net total amount of "Profit/Losses" over the entire period
-       
-
-#The net total amount of "Profit/Losses" over the entire period
-        
-
-print(f"""Financial Analysis
-----------------------------
-Total Months:{total_months}
-Total: {profit_losses}""")   
-
+    for row[0] in profit_losses:
+        profit_losses[row[0]]
+                   
 
 
     
+print(f"""Financial Analysis
+----------------------------
+Total Months:{total_months}
+Total: {profit_losses}""")
+
+#the net total amount of "Profit/Losses" over the entire period
+        
+  
+    
 #The changes in "Profit/Losses" over the entire period, and then the average of those changes
- 
 
 #The greatest increase in profits (date and amount) over the entire period
 
