@@ -4,7 +4,7 @@ import csv
 total_profit=0
 total_months=0
 change_month=[]
-change_profit_losses=[]
+change_list=[]
 profit_loss_change=0
 previous_change=0
 increase=0
@@ -26,27 +26,26 @@ with open(Bank_df,'r') as csvfile:
 #The net total amount of "Profit/Losses" over the entire period
         total_profit = total_profit+ int(row[1])
 #The changes in "Profit/Losses" over the entire period, and then the average of those change        
-if profit_loss_change not in change_profit_losses:
-    change_month = change_month + [row[0]]
-    previous_change = int(row[1])
-    profit_loss_change = int(row[1]) - previous_change
-    change_profit_losses.append(profit_loss_change)
-else:
-    previous_change = int(row[1])
-    change_month = change_month + [row[0]]
 
-decrease = min(change_profit_losses) 
-increase = max(change_profit_losses)
+       # change_month = change_month + [row[0]]
+        previous_change = int(row[1])
+        profit_loss_change = next(row[1]) - previous_change
+        change_list.append(profit_loss_change)
+        previous_change = int(row[1])
+       # change_month = change_month + [row[0]]
+
+        decrease = min(change_list) 
+        increase = max(change_list)
  #add 1 because month associated with change is the second month
-Decrease_month = change_profit_losses.index(decrease)-1
-Increase_month = change_profit_losses.index(increase)-1
+        Decrease_month = change_list.index(decrease)-1
+        Increase_month = change_list.index(increase)-1
 
-    
+print(change_list)    
 print(f"""Financial Analysis
 ----------------------------
 Total Months:{total_months}
 Total: ${total_profit}
-Average Change: ${round(sum(change_profit_losses)/len(change_profit_losses),2)}
+Average Change: ${round(sum(change_list)/len(change_list),2)}
 Greatest Increase in Profits: {change_month[Increase_month]} (${increase})
 Greatest Decrease in Profits: {change_month[Decrease_month]} (${decrease})
 ----------------------------""")
